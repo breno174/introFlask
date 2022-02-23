@@ -1,5 +1,5 @@
 # minha_aplicacao.py
-        
+
 from crypt import methods
 from flask import Flask
 from os import getenv
