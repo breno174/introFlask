@@ -26,3 +26,15 @@ def segunda_rota():
         return {'msg': f'Bem vindo {nome}!'}
     
     return {'msg': 'Status OK!'}
+
+
+#@app.get("/courses/<course_id>") -> dessa forma receve qualquer parametro
+@app.get("/courses/<int:course_id>") #-> dessa forma só aceita receber inteiros
+def get_course(course_id):
+    """
+        Lógica interna para busca do curso e suas funcionalidades,
+        utilizando a variável course_id que vem da url
+    """
+
+    # Retorno dos dados do curso
+    return {"id_curso": course_id}
