@@ -1,7 +1,7 @@
 # minha_aplicacao.py
 
 from crypt import methods
-from flask import Flask, request
+from flask import Flask, jsonify, request
 from os import getenv
 
 
@@ -45,3 +45,11 @@ def get_course(course_id):
 
     # Retorno dos dados do curso
     return {"id_curso": course_id}
+
+
+@app.route("/users/<int:id>/edit", methods=["GET"])
+def route_edit_user(id):
+    msg = "You want to edit the user with ID: {} | Arg type: {}".format(id, type(id))
+    print(msg)
+    # -> "You want to edit the user with ID: 14 | Arg type: <class 'int'>"
+    return jsonify(msg)
