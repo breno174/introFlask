@@ -19,11 +19,18 @@ def primeira_rota():
 
 @app.get('/segunda/query_params')
 def segunda_rota():
-    nome = request.args
+
+    req = request.args
+    nome = request.args.get('nome')
     #Para: /segunda/query_params?valor_1=russia&valor_2=ucrania
-    #retorna Bem vindo ImmutableMultiDict([('valor_1', 'russia'), ('valor_2', 'ucrania')])!
+    #retorna -> "Bem vindo ImmutableMultiDict([('valor_1', 'russia'), ('valor_2', 'ucrania')])!"
+
+    #se nos parametros estiver o argumentos 'nome', ele retorna com esse valor
+    #Ex -> "Bem vindo Russia!"
     if nome:
         return {'msg': f'Bem vindo {nome}!'}
+    elif req:
+        return {'msg': f'Bem vindo {req}!'}
     
     return {'msg': 'Status OK!'}
 
