@@ -53,3 +53,14 @@ def route_edit_user(id):
     print(msg)
     # -> "You want to edit the user with ID: 14 | Arg type: <class 'int'>"
     return jsonify(msg)
+
+
+@app.route("/order/from/<string:order_from>/to/<string:order_to>", methods=["GET"])
+def route_get_orders_by_location(order_from, order_to):
+    msg = "You want to see the orders from {} to {}... | Arg type: order_from: {} | order_to: {}".format(
+        order_from.upper(), order_to.upper(), type(order_from), type(order_to))
+    print(msg)
+    
+    # Para: /order/from/calendario/to/fevereiro
+    # -> "You want to see the orders from CALENDARIO to FEVEREIRO... | Arg type: order_from: <class 'str'> | order_to: <class 'str'>"
+    return jsonify(msg)
